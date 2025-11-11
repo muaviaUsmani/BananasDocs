@@ -4,16 +4,67 @@
  */
 
 .heroBanner {
-  padding: 6rem 0 5rem;
+  padding: 7rem 0 6rem;
   text-align: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(180deg, rgba(255, 217, 61, 0.05) 0%, transparent 100%);
+  background: linear-gradient(135deg,
+    rgba(255, 201, 60, 0.15) 0%,
+    rgba(78, 205, 196, 0.15) 50%,
+    rgba(255, 107, 107, 0.15) 100%);
+  background-size: 200% 200%;
+  animation: gradient-shift 20s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.heroBanner::before {
+  content: '🍌';
+  position: absolute;
+  font-size: 120px;
+  opacity: 0.05;
+  top: 10%;
+  left: 10%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.heroBanner::after {
+  content: '✨';
+  position: absolute;
+  font-size: 80px;
+  opacity: 0.08;
+  bottom: 15%;
+  right: 15%;
+  animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+  }
 }
 
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 3rem 1.5rem;
+    padding: 4rem 1.5rem;
+  }
+
+  .heroBanner::before,
+  .heroBanner::after {
+    font-size: 60px;
   }
 }
 
@@ -21,11 +72,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 2rem;
-  gap: 1rem;
+  margin-top: 2.5rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 
 .buttons a {
-  min-width: 180px;
+  min-width: 200px;
+  font-size: 1.1rem;
 }
