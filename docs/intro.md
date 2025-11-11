@@ -4,75 +4,137 @@ sidebar_position: 1
 
 # Welcome to Bananas
 
-Welcome to the **Bananas** project documentation! This guide will help you get started with Bananas and make the most of its features.
+Welcome to **Bananas** - a lightweight, scalable distributed task queue built with Go, Redis, and Docker for handling asynchronous job processing across multiple workers.
 
 ## What is Bananas?
 
-Bananas is a powerful and accessible project designed to make your development workflow smoother and more efficient. Our documentation is built with a focus on clarity, readability, and ease of use.
+Bananas is a production-ready distributed task queue system that enables you to:
+
+- **Process jobs asynchronously** across multiple worker instances
+- **Handle priority-based queuing** with High, Normal, and Low priorities
+- **Scale horizontally** by adding more workers as your load increases
+- **Route tasks intelligently** to specialized worker pools
+- **Retry failed jobs** automatically with exponential backoff
+- **Schedule jobs** for future execution
+- **Monitor system health** with built-in metrics
+
+## Why Choose Bananas?
+
+### High Performance
+- **1,650+ jobs/second** with 20 workers
+- **Sub-3ms p99 latency** for job submission
+- Lightweight goroutine-based concurrency
+- Efficient Redis-backed queue operations
+
+### Production Ready
+- **93.3% test coverage** across all components
+- Automatic retry with exponential backoff
+- Dead letter queue for failed jobs
+- Graceful shutdown handling
+- Built-in result backend with TTL
+
+### Easy to Deploy
+- Docker and Docker Compose support
+- Kubernetes-ready with Helm charts
+- Systemd service templates
+- Hot reload development mode
 
 ## Quick Start
 
-Get started with Bananas in just a few minutes:
+Get Bananas running in under 2 minutes:
 
 ### Prerequisites
 
-Before you begin, make sure you have:
+- [Docker](https://docs.docker.com/get-docker/) and Docker Compose
+- (Optional) [Go 1.21+](https://golang.org/dl/) for local development
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above
-- A package manager (npm, yarn, or pnpm)
-- Basic knowledge of JavaScript/TypeScript
-
-### Installation
-
-Install Bananas using your preferred package manager:
+### Start Development Environment
 
 ```bash
-npm install bananas
-# or
-yarn add bananas
-# or
-pnpm add bananas
+# Clone the repository
+git clone https://github.com/muaviaUsmani/Bananas.git
+cd Bananas
+
+# Start all services with hot reload
+make dev
 ```
 
-### Your First Project
+This starts:
+- Redis (port 6379)
+- API Server (port 8080)
+- 3 Worker instances
+- Scheduler service
 
-Create your first Bananas project:
+### Submit Your First Job
 
 ```bash
-# Initialize a new project
-bananas init my-project
-
-# Navigate to your project
-cd my-project
-
-# Start the development server
-npm run dev
+curl -X POST http://localhost:8080/jobs \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "send_email",
+    "payload": {"to": "user@example.com", "subject": "Hello!"},
+    "priority": "high"
+  }'
 ```
+
+### Check Job Status
+
+```bash
+curl http://localhost:8080/jobs/{job-id}
+```
+
+## Core Features
+
+### Priority Queuing
+Process high-priority jobs first while ensuring lower-priority jobs aren't starved.
+
+### Task Routing
+Direct jobs to specialized worker pools (GPU workers, email workers, etc.) for resource isolation.
+
+### Automatic Retries
+Failed jobs retry automatically with exponential backoff (2s, 4s, 8s...) to give failing dependencies time to recover.
+
+### Scheduled Jobs
+Submit jobs for future execution or implement periodic tasks with cron expressions.
+
+### Result Backend
+Store and retrieve job results with configurable TTL for successful and failed jobs.
+
+### Graceful Shutdown
+Workers complete in-flight jobs before shutting down, preventing job loss during deployments.
+
+## Architecture Highlights
+
+Bananas uses a simple but powerful architecture:
+
+- **Redis** as the message broker and data store
+- **Stateless workers** enabling easy horizontal scaling
+- **Atomic operations** ensuring no job loss
+- **Goroutine-based concurrency** for lightweight parallelism
 
 ## Next Steps
 
-Now that you have Bananas installed, explore these resources:
+Explore these resources to get the most out of Bananas:
 
-- **[Core Concepts](category/core-concepts)** - Understand the fundamental concepts
-- **[API Reference](category/api-reference)** - Detailed API documentation
-- **[Guides](category/guides)** - Step-by-step tutorials and best practices
+- **[Getting Started](category/getting-started)** - Detailed installation and setup guide
+- **[Core Concepts](category/core-concepts)** - Understand how Bananas works
+- **[API Reference](category/api-reference)** - Complete API documentation
+- **[Deployment Guide](guides/deployment)** - Production deployment patterns
+- **[Troubleshooting](guides/troubleshooting)** - Common issues and solutions
 
-## Getting Help
+## Community & Support
 
-If you need assistance:
+Need help or want to contribute?
 
-- Check our [GitHub Issues](https://github.com/muaviaUsmani/BananasDocs/issues)
-- Join the [Discussions](https://github.com/muaviaUsmani/BananasDocs/discussions)
-- Read through the comprehensive guides in this documentation
+- **GitHub**: [muaviaUsmani/Bananas](https://github.com/muaviaUsmani/Bananas)
+- **Issues**: Report bugs or request features
+- **Discussions**: Ask questions and share ideas
+- **Contributing**: See our [Contributing Guide](https://github.com/muaviaUsmani/Bananas/blob/main/CONTRIBUTING.md)
 
-## Accessibility
+## License
 
-This documentation is designed with accessibility in mind, featuring:
+Bananas is open source software licensed under the [MIT License](https://github.com/muaviaUsmani/Bananas/blob/main/LICENSE).
 
-- Large, readable fonts (18px base)
-- High contrast color scheme
-- Keyboard navigation support
-- Screen reader compatibility
-- Clear visual hierarchy
+---
 
-Let's get started building with Bananas!
+Ready to build scalable, reliable job processing systems? Let's dive in! 🍌
