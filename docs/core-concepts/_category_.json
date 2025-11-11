@@ -1,0 +1,8 @@
+{
+  "label": "Core Concepts",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Learn about the fundamental concepts that power Bananas. These guides will help you understand the architecture, design principles, and key features."
+  }
+}

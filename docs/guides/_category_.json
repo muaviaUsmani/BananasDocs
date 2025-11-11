@@ -1,0 +1,8 @@
+{
+  "label": "Guides",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Step-by-step guides and tutorials to help you build with Bananas. From beginner to advanced topics."
+  }
+}
