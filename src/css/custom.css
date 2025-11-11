@@ -73,13 +73,55 @@
   --ifm-background-color: #1a1a1a;
   --ifm-background-surface-color: #242424;
 
+  /* HIGH CONTRAST TEXT COLORS - Critical for readability */
+  --ifm-font-color-base: #e3e3e3;
+  --ifm-font-color-base-inverse: #1a1a1a;
+  --ifm-color-content: #e3e3e3;
+  --ifm-color-content-secondary: #b4b4b4;
+
+  /* Heading colors - High contrast */
+  --ifm-heading-color: #ffffff;
+  --ifm-color-emphasis-0: #ffffff;
+  --ifm-color-emphasis-100: #e3e3e3;
+  --ifm-color-emphasis-200: #b4b4b4;
+  --ifm-color-emphasis-300: #8a8a8a;
+  --ifm-color-emphasis-400: #6a6a6a;
+  --ifm-color-emphasis-500: #4a4a4a;
+  --ifm-color-emphasis-600: #3a3a3a;
+  --ifm-color-emphasis-700: #2a2a2a;
+  --ifm-color-emphasis-800: #242424;
+  --ifm-color-emphasis-900: #1a1a1a;
+  --ifm-color-emphasis-1000: #0d0d0d;
+
   /* Code Blocks Dark Mode */
   --ifm-code-background: #2d2d2d;
+  --ifm-code-color: #e3e3e3;
   --docusaurus-highlighted-code-line-bg: rgba(255, 217, 61, 0.1);
 
   /* Navbar Dark Mode */
   --ifm-navbar-background-color: #1a1a1a;
+  --ifm-navbar-link-color: #e3e3e3;
+  --ifm-navbar-link-hover-color: #ffffff;
   --ifm-navbar-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+
+  /* Footer Dark Mode */
+  --ifm-footer-background-color: #0d0d0d;
+  --ifm-footer-color: #e3e3e3;
+  --ifm-footer-link-color: #a799ff;
+  --ifm-footer-link-hover-color: #bfb3ff;
+  --ifm-footer-title-color: #ffffff;
+
+  /* Sidebar Dark Mode */
+  --ifm-menu-color: #e3e3e3;
+  --ifm-menu-color-active: #ffffff;
+  --ifm-menu-color-background-active: rgba(255, 217, 61, 0.1);
+  --ifm-menu-color-background-hover: rgba(255, 255, 255, 0.05);
+
+  /* Card/Panel backgrounds */
+  --ifm-card-background-color: #242424;
+  --ifm-toc-border-color: #3a3a3a;
+  --ifm-table-border-color: #3a3a3a;
+  --ifm-hr-background-color: #3a3a3a;
 }
 
 /* Enhanced Focus Indicators for Accessibility */
