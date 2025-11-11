@@ -25,8 +25,7 @@ function HomepageHeader() {
           </Link>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/category/core-concepts"
-            style={{marginLeft: '1rem'}}>
+            to="/docs/category/core-concepts">
             Core Concepts
           </Link>
         </div>

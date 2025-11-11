@@ -41,26 +41,10 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/muaviaUsmani/BananasDocs/tree/main/',
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/muaviaUsmani/BananasDocs/tree/main/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -90,7 +74,7 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Bananas Docs',
+      title: 'Bananas',
       logo: {
         alt: 'Bananas Logo',
         src: 'img/logo.svg',
@@ -102,9 +86,8 @@ const config: Config = {
           position: 'left',
           label: 'Documentation',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/muaviaUsmani/BananasDocs',
+          href: 'https://github.com/muaviaUsmani/Bananas',
           label: 'GitHub',
           position: 'right',
         },
@@ -114,7 +97,7 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Documentation',
           items: [
             {
               label: 'Getting Started',
@@ -128,36 +111,44 @@ const config: Config = {
               label: 'API Reference',
               to: '/docs/category/api-reference',
             },
+            {
+              label: 'Guides',
+              to: '/docs/category/guides',
+            },
           ],
         },
         {
           title: 'Community',
           items: [
             {
-              label: 'GitHub Issues',
-              href: 'https://github.com/muaviaUsmani/BananasDocs/issues',
+              label: 'GitHub',
+              href: 'https://github.com/muaviaUsmani/Bananas',
+            },
+            {
+              label: 'Issues',
+              href: 'https://github.com/muaviaUsmani/Bananas/issues',
             },
             {
               label: 'Discussions',
-              href: 'https://github.com/muaviaUsmani/BananasDocs/discussions',
+              href: 'https://github.com/muaviaUsmani/Bananas/discussions',
             },
           ],
         },
         {
-          title: 'More',
+          title: 'Resources',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
+              label: 'Contributing',
+              href: 'https://github.com/muaviaUsmani/Bananas/blob/main/CONTRIBUTING.md',
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/muaviaUsmani/BananasDocs',
+              label: 'License',
+              href: 'https://github.com/muaviaUsmani/Bananas/blob/main/LICENSE',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Bananas Project. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Bananas. MIT License.`,
     },
     prism: {
       theme: prismThemes.github,
